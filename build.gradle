@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // The production code uses the SLF4J logging API at compile time
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    testCompile 'junit:junit:4.12'
+}
+
+task(run, dependsOn: jar, type: JavaExec ) {
+    main = 'racfPassTicket.example.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
